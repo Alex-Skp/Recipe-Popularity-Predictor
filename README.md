@@ -1,7 +1,7 @@
 # Recipe Popularity Predictor
 This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Sommerkamp
 
-**Important Note: This repository is a work in progress.**
+**Important Note: This repository is currently a work in progress.**
 
 * [Introduction](#Introduction)  
 * [Conclusions](#Conclusions)  
@@ -20,14 +20,57 @@ Decoding the database using Pickle, to have usable data to train the model
 None for now, work in progress
 
 # Methodology
+Things we want to learn about
+- Using pickle to codify/decode the ingredient map 
+- Using sklearn pipelines to apply several ML models easily, and create more readable notebooks
+- Building a MySQL database to dump this data and be able to retrieve it easily for visualizations
+
+## Steps:
+
+- We made a first exploration of the data [INSERT LINK]
+
+
+
+
+
+## 
+Shaping the table we will use for training:
+* Recipe ID: 
+* User:
+- no. of recipes submitted
+- no. of comments per recipe (average)
+- sentiment of the comments (average)
+- rating (average)
+* from the recipes:
+- time to cook
+- number of steps
+- number of ingredients
+- time since posted
+- complexity (analysis of verbs in steps, scoring complexity)
+- ingredient category (categorizing ingredients in meat/fish, dairy, vegetable)
+- Nutritional value
+
+
+
+
+
+
 
 
 ## Data source
 The data has been published on Kaggle by a user called Shuyang Li. The original purpose of the dataset was to generate personalized recipes based on historical user preferences. The dataset includes 180K+ recipes and 700K+ recipe reviews of user interactions and uploads in Food.com from Jan 2000 to Dec 2018.
 
-From the dataset it has been excluded originally recipes with less than 3 steps, and recipes with more than 20 ingredients, as well as users that have less than 4 reviews. 
 
 You can download the data from this link: [Food.com Recipes and Interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)
+
+### Table description:
+* RAW_interactions: 
+-user_id and recipe_id: User and recipe it interacted with. 
+-date: date of the interaction as YYYY-MM-DD
+-rating: 
+-interactions tables:  These were provided for the original purpose of this dataset, and include data regarding past interactions of users with the recipes posted. We will not be using this data for this project.
+
+
 
 ## Stack 
 We will use Python for data wrangling and to apply the machine learning model.
@@ -36,6 +79,8 @@ Exploratory data analysis will be done with Python and Tableau, and the database
 
 ## MVP
 The minimum viable product to deliver will be a machine learning model trained to predict the number of comments the recipe will get from other users, together with a proper exploratory data analysis of the data, and Tableau Visualizations. 
+We will first work with 2% of the dataset, due to the vast size of it, and then feed the model a bigger set. 
+
 
 ## Extra Steps
 
