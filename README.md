@@ -3,6 +3,11 @@ This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Som
 
 **Important Note: This repository is a work in progress.**
 
+* [Introduction](#Introduction)  
+* [Conclusions](#Conclusions)  
+* [Methodology](#Methodology)  
+
+
 # Introduction
 We will work on a recipe database from Food.com where users submitted recipes, and received ratings and comments from other users. We will try to quantify the recipe difficulty and try to predict user interaction with the recipe posted.  
 ## Background
