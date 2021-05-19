@@ -33,8 +33,20 @@ Things we want to learn about
 ## Steps:
 
 - We made a first exploration of the data [INSERT LINK]
+- Planned how the dataframe for training the model should look like [LINK TO NOTEBOOK]
+- Started touching the interactions table. Bringing in the submission date of the recipe being commented, in order to analyse how the reaction of the users look like for different users. with this data we can also use 
 
-
+#### Questions for Tableau we can try to answer:
+How many people review their own recipes, with how much rating and sentiment (We could not analyze this. Most of contributor IDS don't match the user IDs that comment. this could be due to users having different ID numbers when posting and when commenting, or really because most people who post do not comment. 
+how is the reaction of users, how late is the interaction distribution, do people react early? late? distributed through time?
+INSERT GRAPH SNIP FROM TABLEAU 
+Users comment recipes mostly the day after they are posted, then drop exponentially. There is a small surge of activity every year after the recipe was submitted. This could be due to the recipes being seasonal. People tend to cook more christmas recipes on christmas time, for example
+find best contributors, we can do a RFM analysis of posting users, as if they were our users, how many interaction they generate, this translates to traffic in the page.
+a highlight is that there is a stop of posting at around 2010, being the biggest contributor in that group. There is very high disparity between big posters and smaller posters. 
+INSERT GRAPH SNIP FROM TABLEAU  
+how many recipe postings we had over time and how many interactions also happened over time
+We can see that activity dropped since 2010, and interestingly the complexity of recipes, or the amount of steps that are needed, as well as the average rating drops
+INSERT GRAPH SNIP FROM TABLEAU
 
 
 
