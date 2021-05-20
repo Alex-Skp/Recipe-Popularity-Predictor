@@ -9,14 +9,9 @@ This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Som
 * [Conclusions](#Conclusions)  
 * [Methodology](#Methodology)  
 
-
-* [Introduction](#Introduction)  
-* [Conclusions](#Conclusions)  
-* [Methodology](#Methodology)  
-
-
 # Introduction
-We will work on a recipe database from Food.com where users submitted recipes, and received ratings and comments from other users. We will try to quantify the recipe difficulty and try to predict user interaction with the recipe posted.  
+We will work on a recipe database from Food.com where users submitted recipes, and received ratings and comments from other users. We will try to quantify the recipe difficulty and try to predict user interaction with the recipe posted.
+  
 ## Background
 This project is to be submitted to Ironhack as proof of the student capability to execute a project from beginning to end. We are given a full week to execute the project to try to corroborate our hypothesis. In this case I believe user interaction with recipes uploaded can be predicted by training a machine learning model with data regarding the recipe, the complexity of it, and the history of uploads from the user who posted. 
 
@@ -38,70 +33,54 @@ Things we want to learn about
 - Planned how the dataframe for training the model should look like [LINK TO NOTEBOOK]
 - Started touching the interactions table. Bringing in the submission date of the recipe being commented, in order to analyse how the reaction of the users look like for different users. with this data we can also use 
 
-#### Questions for Tableau we can try to answer:
-How many people review their own recipes, with how much rating and sentiment (We could not analyze this. Most of contributor IDS don't match the user IDs that comment. this could be due to users having different ID numbers when posting and when commenting, or really because most people who post do not comment. 
-how is the reaction of users, how late is the interaction distribution, do people react early? late? distributed through time?
-INSERT GRAPH SNIP FROM TABLEAU 
-Users comment recipes mostly the day after they are posted, then drop exponentially. There is a small surge of activity every year after the recipe was submitted. This could be due to the recipes being seasonal. People tend to cook more christmas recipes on christmas time, for example
-find best contributors, we can do a RFM analysis of posting users, as if they were our users, how many interaction they generate, this translates to traffic in the page.
-a highlight is that there is a stop of posting at around 2010, being the biggest contributor in that group. There is very high disparity between big posters and smaller posters. 
-INSERT GRAPH SNIP FROM TABLEAU  
-how many recipe postings we had over time and how many interactions also happened over time
-We can see that activity dropped since 2010, and interestingly the complexity of recipes, or the amount of steps that are needed, as well as the average rating drops
-INSERT GRAPH SNIP FROM TABLEAU
+#### Questions for Tableau want to answer
+In order to gain insight in the data, we will plot it with tableau, and we asked ourselves the following questions:
 
+1- How many people review their own recipes, with how much rating and sentiment?  
+We could not analyze this as most of contributor IDS don't match the user IDs that comment. this could be due to users having different ID numbers when posting and when commenting, or really because most people who post do not comment. 
 
+2- How is the reaction of users, how late is the interaction distribution, do people react early? late? distributed through time?
+Users comment recipes mostly the day after they are posted, then drop exponentially. There is a small surge of activity every year after the recipe was submitted. This could be due to the recipes being posted and searched for in a yearly season. 
+![picturetableau](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/images/inter-with-recipes.JPG?raw=true)
 
-## 
-Shaping the table we will use for training:
-* Recipe ID: 
-* User:
-- no. of recipes submitted
-- no. of comments per recipe (average)
-- sentiment of the comments (average)
-- rating (average)
-* from the recipes:
-- time to cook
-- number of steps
-- number of ingredients
-- time since posted
-- complexity (analysis of verbs in steps, scoring complexity)
-- ingredient category (categorizing ingredients in meat/fish, dairy, vegetable)
-- Nutritional value
+3- Which are the best recipe contributors? What is the health status of our page? 
+For this we can do a RFM analysis of posting users, as if they were our customers, and analyze how many interaction they generate, as this translates to traffic in the page, and more advertising revenue.
+One highlight is that there is a stop of posting at around 2010, which could be caused by the rise of Youtube, and the drifting of viewers going to video recipes from written instead. Our biggest contributor stopped posting around that time too. 
+![picturetableau2](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/images/RFM-contributors.JPG?raw=true) 
 
-
-
-
-
-
-
+4- How many recipe postings we had over time and how many interactions also happened over time?
+We can see that activity dropped since 2010. Towards the latest years recipes tended to be more complicated in the amount of steps needed, and user's recipe ratings dropped in average. 
+![picturetableau3](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/images/data-span.JPG?raw=true)
 
 ## Data source
-The data has been published on Kaggle by a user called Shuyang Li. The original purpose of the dataset was to generate personalized recipes based on historical user preferences. The dataset includes 180K+ recipes and 700K+ recipe reviews of user interactions and uploads in Food.com from Jan 2000 to Dec 2018.
-
+The data has been published on Kaggle by a user called Shuyang Li. The original purpose of the dataset was to generate personalized recipes based on historical user preferences. Scraped from Food.com, and it consists of data from 2000 to 2018.
 
 You can download the data from this link: [Food.com Recipes and Interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)
 
-### Table description:
-* RAW_interactions: 
--user_id and recipe_id: User and recipe it interacted with. 
--date: date of the interaction as YYYY-MM-DD
--rating: 
--interactions tables:  These were provided for the original purpose of this dataset, and include data regarding past interactions of users with the recipes posted. We will not be using this data for this project.
-
-
+### Table descriptions
+* RAW_interactions.csv : Raw interaction data, over 1M lines and several featuers. 
+* RAW_recipes.csv : Raw recipe data, with nutritional values, ingredients, steps, and many other features.
+* ingr_map.pkl : codified table with pickle, which has data about ingredients, and simplified names that substitute current ones in the raw dataset.
+* PP_recipes, PP_users and test, train, and validation sets: These are tokenized tables, as well as sets to train a machine learning model which purpose was to synthesise tailored recipes based on user previous activity in the site.  They are not used in this project.
+**For more info about the data used refer to [0-import-discover-data.ipynb](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/code/0-import-discover-data.ipynb)**
 
 ## Stack 
-We will use Python for data wrangling and to apply the machine learning model.
-Exploratory data analysis will be done with Python and Tableau, and the database will be built with MySQL 
+* With python: 
+	- Pandas and numPy for wrangling.
+	- Seaborn and MatPlotLib for visualizations.
+	- Spacy and TextBlob for natural language processing
+	- SciKitLearn for machine learning deployment
+* Tableau to create Visualizations
+* Slides.com for the [presentation](https://slides.com/alex-skp/predicting-user-interaction)
 
-
-## MVP
-The minimum viable product to deliver will be a machine learning model trained to predict the number of comments the recipe will get from other users, together with a proper exploratory data analysis of the data, and Tableau Visualizations. 
-We will first work with 2% of the dataset, due to the vast size of it, and then feed the model a bigger set. 
-
+## In this repository:
+* In the folder [code](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/tree/main/code) you can find the jupyter notebooks with the python code used to access the data, clean it, creating a data table to train our machine learning model, and the application of these models through data pipelines developed with the library sklearn. 
+* A [tableau story](https://public.tableau.com/profile/alex2690#!/vizhome/AnalysisofFood_comrecipedatabaseanduserinteractions/AnalysisofFood_comrecipedatabase) with interactive dashboards to discover the data. You can check [my profile]https://public.tableau.com/profile/alex2690#!/?newProfile=&activeTab=0) for visualizations related to other projects. 
 
 ## Extra Steps
+* Working more specifically in the machine models applied. The current status is a quick application in order to test the sklearn pipelines, so definitive conclusions can't be made from those results.
+* Making a better Natural Language analysis of the text files, and pulling more information from the actual qualitative information in the dataset. 
+* Creating a MySQL database in order to simplify the retrieval and manipulation of the data before feeding it to the machine learning models. 
 
 
 
