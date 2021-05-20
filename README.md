@@ -1,3 +1,5 @@
+![banner](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/images/vongole-banner.png?raw=true)
+
 # Recipe Popularity Predictor
 This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Sommerkamp
 
