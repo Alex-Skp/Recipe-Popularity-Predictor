@@ -6,7 +6,7 @@ This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Som
 * [Introduction](#Introduction-and-background)  
 * [Conclusions](#Conclusions)  
 * [Methodology](#Methodology) 
-* [The Data](#Data-source) 
+* [The data source](#Data-source) 
 * [Check the Tableau dashboards](https://public.tableau.com/profile/alex2690#!/vizhome/AnalysisofFood_comrecipedatabaseanduserinteractions/AnalysisofFood_comrecipedatabase)
 
 # Introduction and background
