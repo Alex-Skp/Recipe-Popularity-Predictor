@@ -5,25 +5,30 @@ This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Som
 
 **Important Note: This repository is currently a work in progress.**
 
-* [Introduction](#Introduction)  
+* [Introduction](#Introduction-and-background)  
 * [Conclusions](#Conclusions)  
 * [Methodology](#Methodology) 
 * [The Data](#Data-source) 
 * [Check the Tableau dashboards](https://public.tableau.com/profile/alex2690#!/vizhome/AnalysisofFood_comrecipedatabaseanduserinteractions/AnalysisofFood_comrecipedatabase)
 
-# Introduction
-We will work on a recipe database from Food.com where users submitted recipes, and received ratings and comments from other users. We will try to quantify the recipe difficulty and try to predict user interaction with the recipe posted.
-  
-## Background
+# Introduction and background
 This project is to be submitted to Ironhack as proof of the student capability to execute a project from beginning to end. We are given a full week to execute the project to try to corroborate our hypothesis. In this case I believe user interaction with recipes uploaded can be predicted by training a machine learning model with data regarding the recipe, the complexity of it, and the history of uploads from the user who posted. 
+For this a database from Food.com will be used, a web portal open from 2009 where recipes are posted and commented by users. 
 
 ## Objectives
-Decoding the database using Pickle, to have usable data to train the model
+1- Creating a machine learning model that predicts the number of comments a recipe will receive in the first 30 days, and the average rating of the recipe, by creating features and building a database to train several regression models.    
+2- Making an exploration of the data with Tableau, answering specific [questions](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/tree/main/tableau-eda) and creating an [interactive dashboard](https://public.tableau.com/profile/alex2690#!/vizhome/AnalysisofFood_comrecipedatabaseanduserinteractions/AnalysisofFood_comrecipedatabase).
 
 # Conclusions
-None for now, work in progress
+
+
+
 
 # Methodology
+
+3- Learn the use of new tools for several steps in the process. In this project I explored deploying sklearn pipelines, extract word structures with spacy natural language processing tools, as well as using [slides.com](https://slides.com/alex-skp/predicting-user-interaction) to build the presentation deck.
+
+
 Things we want to learn about
 - Using pickle to codify/decode the ingredient map 
 - Using sklearn pipelines to apply several ML models easily, and create more readable notebooks
