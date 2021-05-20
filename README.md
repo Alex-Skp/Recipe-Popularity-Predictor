@@ -3,8 +3,6 @@
 # Recipe Popularity Predictor
 This is the final project for Ironhack Data Analytics Bootcamp, by Alexandre Sommerkamp
 
-**Important Note: This repository is currently a work in progress.**
-
 * [Introduction](#Introduction-and-background)  
 * [Conclusions](#Conclusions)  
 * [Methodology](#Methodology) 
@@ -18,34 +16,29 @@ For this a database from Food.com will be used, a web portal open from 2009 wher
 ## Objectives
 1- Creating a machine learning model that predicts the number of comments a recipe will receive in the first 30 days, and the average rating of the recipe, by creating features and building a database to train several regression models.    
 2- Making an exploration of the data with Tableau, answering specific [questions](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/tree/main/tableau-eda) and creating an [interactive dashboard](https://public.tableau.com/profile/alex2690#!/vizhome/AnalysisofFood_comrecipedatabaseanduserinteractions/AnalysisofFood_comrecipedatabase).
+3- Exploring new tools for wrangling and deploying machine learning models, as this project is done for educational purposes. 
 
 # Conclusions
-
-
-
+- From the exploratory analysis we could see that food.com had great user interaction at two years since conception, and kept a fair amount of activity through the years, until 2010, where it plummeted.   
+- We could see that users tend to rate recipes high when they post a review, and that this tendency drops as the days pass since the posting of the recipe, and it also becomes more unpredictable. This makes it hard for machine learning models to predict accurately the user interaction based on the parameters facilitated.  
+- In this project we achieved the best result with a random forest regressor to predict the number of users, and with linear regression for the rating, however the results achieved with the models are not good enough, as their average error is bigger than the average user interaction, and for the rating, the average error of .5 points also is not good enough, as most recipes already fall between 4 and 5 points.   
+- We succesfully deployed sklearn pipelines and were able to test several models in a very simple way, but more work is to be done in measuring the accuracy of the models, as well as tweaking the parameters of them.  
 
 # Methodology
 
-3- Learn the use of new tools for several steps in the process. In this project I explored deploying sklearn pipelines, extract word structures with spacy natural language processing tools, as well as using [slides.com](https://slides.com/alex-skp/predicting-user-interaction) to build the presentation deck.
-
-
-Things we want to learn about
-- Using pickle to codify/decode the ingredient map 
-- Using sklearn pipelines to apply several ML models easily, and create more readable notebooks
-- Building a MySQL database to dump this data and be able to retrieve it easily for visualizations
-
-## Steps:
-
-- We made a first exploration of the data [INSERT LINK]
-- Planned how the dataframe for training the model should look like [LINK TO NOTEBOOK]
-- Started touching the interactions table. Bringing in the submission date of the recipe being commented, in order to analyse how the reaction of the users look like for different users. with this data we can also use 
+- Downloaded the data from [Kaggle](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions) and made a first exploration of the data in [this notebook](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/code/0-import-discover-data.ipynb)
+- Planned the [features](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/images/table-planning.JPG) that can be extracted from the data 
+- Engineered the features that we would feed later to the machine learning model, you can see the process in [this notebook](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/code/1-generating-features-and-wrangling.ipynb)
+- During that process we could create a richer database to feed in Tableau, answer the [questions](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/tree/main/tableau-eda) que placed ourselves, and created this [dashboard](https://public.tableau.com/profile/alex2690#!/vizhome/AnalysisofFood_comrecipedatabaseanduserinteractions/AnalysisofFood_comrecipedatabase).
+- We went on a deeper analysis of the features, and decided the steps we would need to preprocess our data. Deployed the pipelines and tried several models. The process can be found in [this notebook](https://github.com/Alex-Skp/Recipe-Popularity-Predictor-work-in-progress/blob/main/code/2-Applying-regression-models-with-pipelines.ipynb)
+-Prepared a presentation to be delivered to the rest of the cohort, using using [slides.com](https://slides.com/alex-skp/predicting-user-interaction).
 
 ## Data source
 The data has been published on Kaggle by a user called Shuyang Li. The original purpose of the dataset was to generate personalized recipes based on historical user preferences. Scraped from Food.com, and it consists of data from 2000 to 2018.
 
 You can download the data from this link: [Food.com Recipes and Interactions](https://www.kaggle.com/shuyangli94/food-com-recipes-and-user-interactions)
 
-### Table descriptions
+**Table descriptions**
 * RAW_interactions.csv : Raw interaction data, over 1M lines and several featuers. 
 * RAW_recipes.csv : Raw recipe data, with nutritional values, ingredients, steps, and many other features.
 * ingr_map.pkl : codified table with pickle, which has data about ingredients, and simplified names that substitute current ones in the raw dataset.
